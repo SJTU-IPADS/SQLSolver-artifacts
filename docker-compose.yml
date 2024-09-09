@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  sqlsolver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sqlsolver
+    hostname: sqlsolver
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: mssql2019Admin
+    volumes:
+      - .:/app
+

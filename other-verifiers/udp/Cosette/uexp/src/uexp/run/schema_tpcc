@@ -1,0 +1,25 @@
+schema warehouse(w_id:int, w_ytd:int, w_tax:int, w_name:int, w_street_1:int, w_street_2:int, w_city:int, w_state:int, w_zip:int);
+schema item(i_id:int, i_name:int, i_price:int, i_data:int, i_im_id:int);
+schema stock(s_w_id:int, s_i_id:int, s_quantity:int, s_ytd:int, s_order_cnt:int, s_remote_cnt:int, s_data:int, s_dist_01:int, s_dist_02:int, s_dist_03:int, s_dist_04:int, s_dist_05:int, s_dist_06:int, s_dist_07:int, s_dist_08:int, s_dist_09:int, s_dist_10:int);
+schema district(d_w_id:int, d_id:int, d_ytd:int, d_tax:int, d_next_o_id:int, d_name:int, d_street_1:int, d_street_2:int, d_city:int, d_state:int, d_zip:int);
+schema customer(c_w_id:int, c_d_id:int, c_id:int, c_discount:int, c_credit:int, c_last:int, c_first:int, c_credit_lim:int, c_balance:int, c_ytd_payment:int, c_payment_cnt:int, c_delivery_cnt:int, c_street_1:int, c_street_2:int, c_city:int, c_state:int, c_zip:int, c_phone:int, c_since:int, c_middle:int, c_data:int);
+schema history(h_c_id:int, h_c_d_id:int, h_c_w_id:int, h_d_id:int, h_w_id:int, h_date:int, h_amount:int, h_data:int);
+schema oorder(o_w_id:int, o_d_id:int, o_id:int, o_c_id:int, o_carrier_id:int, o_ol_cnt:int, o_all_local:int, o_entry_d:int);
+schema new_order(no_w_id:int, no_d_id:int, no_o_id:int);
+schema order_line(ol_w_id:int, ol_d_id:int, ol_o_id:int, ol_number:int, ol_i_id:int, ol_delivery_d:int, ol_amount:int, ol_supply_w_id:int, ol_quantity:int, ol_dist_info:int);
+
+table warehouse(warehouse);
+table item(item);
+table stock(stock);
+table district(district);
+table customer(customer);
+table history(history);
+table oorder(oorder);
+table new_order(new_order);
+table order_line(order_line);
+
+unique(warehouse, w_id);
+unique(item, i_id);
+foreign(stock, s_w_id, warehouse, w_id);
+foreign(stock, s_i_id, item, i_id);
+foreign(district, d_w_id, warehouse, w_id);

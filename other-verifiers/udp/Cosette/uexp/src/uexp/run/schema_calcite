@@ -1,0 +1,16 @@
+schema account(acctno:int, type:int, balance:int);
+schema bonus(ename:int, job:int, sal:int, comm:int);
+schema dept(deptno:int, name:int);
+schema emp(empno:int, ename:int, job:int, mgr:int, hiredate:int, sal:int, comm:int, deptno:int, slacker:int);
+schema t(k0:int, c1:int, f1_a0:int, f2_a0:int, f0_c0:int, f1_c0:int, f0_c1:int, f1_c2:int, f2_c3:int);
+schema anon(c:int);
+table account(account);
+table bonus(bonus);
+table dept(dept);
+table emp(emp);
+table t(t);
+table anon(anon);
+
+unique(dept, deptno);
+unique(emp, empno);
+foreign(emp, deptno, dept, deptno);

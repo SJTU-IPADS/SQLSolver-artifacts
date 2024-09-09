@@ -1,0 +1,23 @@
+sqlrewrites examples/sqlrewrites: 13/22
+examples/sqlrewrites/CQExample0 failure
+examples/sqlrewrites/CQExample1 failure
+examples/sqlrewrites/SelfJoin0 failure
+examples/sqlrewrites/SelfJoin1 failure
+examples/sqlrewrites/SelfJoin2 failure
+examples/sqlrewrites/aggOnExpr success
+examples/sqlrewrites/commutativeSelect success
+examples/sqlrewrites/conjunctSelect success
+examples/sqlrewrites/countProject failure
+examples/sqlrewrites/disjointSelect failure
+examples/sqlrewrites/havingToWhere success
+examples/sqlrewrites/idempotentSelect success
+examples/sqlrewrites/inlineCorrelatedSubqueries failure
+examples/sqlrewrites/joinCommute success
+examples/sqlrewrites/productDistributesOverUnion success
+examples/sqlrewrites/projectJoinTranspose success
+examples/sqlrewrites/projectionDistributesOverUnion success
+examples/sqlrewrites/pullsubquery failure
+examples/sqlrewrites/pushProj success
+examples/sqlrewrites/pushdownSelect success
+examples/sqlrewrites/timesAndDiv success
+examples/sqlrewrites/unionEmpty success

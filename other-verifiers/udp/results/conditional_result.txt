@@ -1,0 +1,10 @@
+conditional examples/conditional: 0/9
+examples/conditional/ex1sigmod92 failure
+examples/conditional/ex2sigmod83 failure
+examples/conditional/ex2sigmod92 failure
+examples/conditional/ex2sigmod92simpl failure
+examples/conditional/ex3sigmod92 failure
+examples/conditional/fkPennTR failure
+examples/conditional/index_sigmod82 failure
+examples/conditional/inline-exists failure
+examples/conditional/missing-pred failure
