@@ -103,11 +103,24 @@ You may also access the results outside the container in the `results` directory
 (`/app` is mapped to the project root directory)
 
 Each of the directories in `/app/results` corresponds to an experiment below.
-- Log files are available in all the experiments and record all the results.
-- In addition, the first experiment (i.e. SQL equivalence benchmarks) also provides `.tsv` files.
-	Each `<verifier>-<benchmark>.tsv` file records the verification time of a verifier on one benchmark,
-	the i-th line in the file shows the verification time of the i-th query pair in milliseconds,
-	and an empty line indicates that the verifier fails to verify the query pair.
+- The files under`/app/results/e1` directory reproduce the evaluation results in Table 1 and Section 6.2.  The number of equivalent pairs that can be proved by each verifier is shown at the end of log files. For example, the following line at the end of `sqlsolver-calcite.log`indicates that SQLSolver can prove all 232 cases in Calcite test set.
+
+  ```
+  Passed 232 cases.
+  ```
+
+  Note that UDP paper said that it can prove 33 pairs of equivalent queries in the Calcite test set. However, since UDP does not release all its source code, `udp-calcite.log` cannot produce its original results on the Calcite test set. Thus, in our paper, we directly adopt the data in UDP paper rather than the data in `udp-calcite.log`.
+
+  Table 5 in Section 6.2 shows the root causes that each verifier fail to prove some cases that can be proved by SQLSolver. Since the analysis of root causes requires expertise and has to be implemented manually, there is no automated scripts to generate this table.
+
+  Additionally,  `/app/results/e1` also contains `.tsv` files. Each `<verifier>-<benchmark>.tsv` file records the verification time of a verifier on one benchmark, the i-th line in the file shows the verification time of the i-th query pair in milliseconds,
+  and an empty line indicates that the verifier fails to verify the query pair. The data in Table 6 of the paper are manually calculated by tsv files.
+
+- The files under `/app/results/e2 `directory reproduce the results in the third paragraph of Section 6.2. Each log file shows the number of cases that can be proved by baseline verifiers after combing them with our algorithm of handling `order by`.
+
+- The files under `/app/results/e3` directory  reproduce the results in Section 6.3. `wetune.log` shows that SQLSolver can prove all 35 rewrite rules discovered by [WeTune](https://dl.acm.org/doi/10.1145/3514221.3526125).  `sqlsolver.log` shows that SQLSolver can prove another 42 rewrite rules.
+
+- The files under `/app/results/e4` directory  reproduce the results in Section 6.3. `sql-server.log` shows the original query and the query after rewrite. It also shows the latency of two queries and calculate the acceleration.
 
 ## Details of scripts
 
