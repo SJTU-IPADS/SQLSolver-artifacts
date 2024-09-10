@@ -1,21 +1,20 @@
-# SQLSolver-AE
+# SQLSolver: Proving Query Equivalence Using Linear Integer Arithmetic
+
+This repository provides the source code and scripts of SQLSolver (SIGMOD 2024) as well as the baselines compared with it in the paper. SQLSolver is an automated prover for the equivalence of SQL queries. It proposes a new linear integer arithmetic theory to model the semantics of SQL queries and achieve automated verification via SMT solvers. Compared to prior provers, it can support more SQL features and has a stronger verification capability.
 
 ## Prerequisites
 
 ### Hardware requirements
 
-The architecture should be `amd64` / `x64`.
-
-We do all the experiments on an AWS EC2 c5a.8xlarge machine.
+We do all the experiments on an AWS EC2 c5a.8xlarge machine with 128GB gp3.
 
 ### Software requirements
 
-OS: Ubuntu 22.04.4 LTS.
-Other systems are not tested.
+The operating system used is Ubuntu 20.04 LTS. Other systems are not tested.
 
-Docker along with `docker compose` should be installed. You may refer to the next section to install them.
+Docker along with `docker compose` should be installed. You can install it by following the instruction of the next section.
 
-Other software are containerized or embedded in the repository:
+Other software has been containerized or embedded in our repository. You do not need to install them.
 - Python 3 and Python 2
 - Java 17
 - Maven 3.9.6
@@ -57,52 +56,62 @@ In the project root directory, type:
 docker compose up --remove-orphans
 ```
 
-## Compile
+## Compilation
 
 The baselines `UDP` and `SPES` require compilation beforehand.
 
-### Outside the container
+### Compilation of UDP
 
-In the project root directory, type:
+To compile UDP, run the script `build-udp.sh` under the root directory:
 ```sh
 # Pre-build binaries for UDP
 # It pulls another docker image to help build the binaries, so we do this build outside the container
 ./build-udp.sh
 ```
 
-### Inside the container
+### Compilation of SPES
 
-Enter the container by `docker exec -it sqlsolver /bin/bash`.
-Then type:
+To compile SPES, run the following command to enter the container firstly.
+
+```shell
+docker exec -it sqlsolver /bin/bash
+```
+
+
+Then run the script `build-spes.sh` under the `/app` directory inner the container:
+
 ```sh
 # Pre-build binaries for SPES
 ./build-spes.sh
 ```
 
-The rest of instructions assume that you have entered the container by `docker exec -it sqlsolver /bin/bash`
-and you are at the directory `/app`.
 
-## The master script
 
-To do all the experiments with one click, type in the `/app` directory:
+## Experimental Reproduction
+
+Note that the following commands should be run after you enter the container by `docker exec -it sqlsolver /bin/bash`
+and the current directory is `/app`.
+
+To reproduce all the evaluation results in the paper, run the following command under the `/app` directory inner the docker:
+
 ```sh
 ./all-in-one.sh
 ```
 
-Results will be stored in `/app/results` inside the container.
+Results will be stored in the log files under `/app/results` inside the container.
 You may also access the results outside the container in the `results` directory under the project root directory.
 (`/app` is mapped to the project root directory)
 
 Each of the directories in `/app/results` corresponds to an experiment below.
 - Log files are available in all the experiments and record all the results.
 - In addition, the first experiment (i.e. SQL equivalence benchmarks) also provides `.tsv` files.
-Each `<verifier>-<benchmark>.tsv` file records the verification time of a verifier on one benchmark,
+	Each `<verifier>-<benchmark>.tsv` file records the verification time of a verifier on one benchmark,
 	the i-th line in the file shows the verification time of the i-th query pair in milliseconds,
 	and an empty line indicates that the verifier fails to verify the query pair.
 
-## Details of scripts for different experiments
+## Details of scripts
 
-All these scripts are in the `/app/runners` directory.
+All the scripts are in the `/app/runners` directory.
 
 ### Test on SQL equivalence benchmarks
 
@@ -134,7 +143,7 @@ python no-order-by-<verifier>.py -tests TESTS
 # -tests TESTS: specify the benchmark; possible values are "calcite", "spark", "tpcc", and "tpch".
 ```
 
-### Discovery of rules
+### Discovered Rewrite Rules
 
 In the `/app/runners` directory, type:
 ```sh
@@ -142,16 +151,17 @@ python verify-rules-sqlsolver.py -tests TESTS
 # -tests TESTS: specify the benchmark; possible values are "wetune" and "sqlsolver".
 ```
 
-### Compare the query latency before and after rewrite
+### Effectiveness of Discovered Rules
 
 In the `/app/runners` directory, type:
 ```sh
 python run-useful-rewrite-example.py
 ```
 
-## Time cost estimation
 
-The preparation before running the experiments, including building the docker image and compiling the code,
-takes roughly 10 minutes under a good network condition.
 
-The experiments take about 1.5 hours in all.
+## Time Estimation of the Whole Workflow 
+
+The preparation before running the experiments takes roughly 10 minutes, including building the docker image and compiling the code,
+
+Running `all-in-one.sh` to reproduce all evaluation results will take about 1.5 hours.
