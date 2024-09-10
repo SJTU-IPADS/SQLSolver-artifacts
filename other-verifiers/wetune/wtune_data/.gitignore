@@ -19,3 +19,4 @@
 !no_order_by/
 !no_order_by/*
 !wtune.db
+!db_rule_instances/
