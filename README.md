@@ -149,18 +149,6 @@ In the `/app/runners` directory, type:
 python run-useful-rewrite-example.py
 ```
 
-## Explanation of absent figures
-
-The number of Calcite test cases that UDP passes is taken from the UDP paper since we cannot reproduce this number.
-We have tried out best to reproduce the result.
-You can see that our script produces a lower number.
-
-The analysis of why other verifiers fail to prove query equivalence are obtained by manual inspection,
-so related figures (e.g. Table 5) are not available from automated scripts.
-
-Some figures (e.g. Table 6) are not directly available from the results.
-They need to be derived from the running results using tools like Microsoft Excel.
-
 ## Time cost estimation
 
 The preparation before running the experiments, including building the docker image and compiling the code,
