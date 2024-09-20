@@ -91,3 +91,5 @@ echo [4] Query latency improvement:
 echo Running the case study on SQL Server...
 python run-useful-rewrite-example.py > /app/results/e4/sql-server.log 2>&1
 
+echo Generate the reproduction results
+python postprocess.py > /app/results/reproduction.txt 2>&1
