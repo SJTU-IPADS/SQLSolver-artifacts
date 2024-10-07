@@ -1,6 +1,6 @@
 # SQLSolver: Proving Query Equivalence Using Linear Integer Arithmetic
 
-This repository provides all materials for [ACM SIGMID 2024 ARI](https://reproducibility.sigmod.org/2024/index.html), including the source code and scripts of [SQLSolver](https://dl.acm.org/doi/pdf/10.1145/3626768) (SIGMOD 2024) as well as the baselines compared with it in our paper. SQLSolver is an automated prover for the equivalence of SQL queries. It proposes a new linear integer arithmetic theory to model the semantics of SQL queries and achieve automated verification via SMT solvers. Compared to prior provers, it can support more SQL features and has a stronger verification capability.
+This repository provides all materials for [ACM SIGMOD 2024 ARI](https://reproducibility.sigmod.org/2024/index.html), including the source code and scripts of [SQLSolver](https://dl.acm.org/doi/pdf/10.1145/3626768) (SIGMOD 2024) as well as the baselines compared with it in our paper. SQLSolver is an automated prover for the equivalence of SQL queries. It proposes a new linear integer arithmetic theory to model the semantics of SQL queries and achieve automated verification via SMT solvers. Compared to prior provers, it can support more SQL features and has a stronger verification capability.
 
 ## Prerequisites
 
