@@ -153,10 +153,12 @@ In the `/app/runners` directory, type:
 python run-useful-rewrite-example.py
 ```
 
-
-
 ## Time Estimation of the Whole Workflow 
 
 The preparation before running the experiments takes roughly 10 minutes, including building the docker image and compiling the code,
 
 Running `all-in-one.sh` to reproduce all evaluation results will take about 1.5 hours.
+
+## Online Demo
+
+We provide an online [demo](https://sqlsolver.systems/sqlsolver/home) and you can try it. Note that the online demo runs on a machine with poor performance. If you want to reproduce all evaluation results, please use an AWS EC2 c5a.8xlarge machine with 128GB gp3 or a stronger machine.
