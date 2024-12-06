@@ -162,3 +162,43 @@ Running `all-in-one.sh` to reproduce all evaluation results will take about 1.5 
 ## Online Demo
 
 We provide an online [demo](https://sqlsolver.systems/sqlsolver/home) and you can try it. Note that the online demo runs on a machine with poor performance. If you want to reproduce all evaluation results, please use an AWS EC2 c5a.8xlarge machine with 128GB gp3 or a stronger machine.
+
+
+
+## The Old Version of SQLSolver
+
+After the paper was published, we further add some optimizations to SQLSolver, which aim at enhancing the verification capabilities. These optimizations, however, affect the speed of verification. Please note that even without these optimizations, SQLSolver can still verify all the test cases that we assert it can pass in the paper.
+
+### Comparision of Two versions of SQLSolver
+
+This repository provides the latest version of SQLSolver, while the old version of SQLSolver can be found in [this repository](https://github.com/nhaorand/ARI-Supplementary-Material.git). The main difference between this two versions of SQLSolver is that the new version has stronger verification capabilities but slower verification speed than the old version. For example, for the test cases from Spark SQL, the new version can pass 118 cases, while the old version can pass 114 cases.
+
+### How to Run the Old Version of SQLSolver
+
+Under the root directory of this repository, please first download the repository of the old SQLSolver.
+
+```shell
+git clone https://github.com/nhaorand/ARI-Supplementary-Material.git
+```
+
+Then, please enter the docker by the following command.
+
+```shell
+docker exec -it sqlsolver /bin/bash
+```
+
+Now, you are under the `/app` directory. Please enter the directory of the old SQLSolver.
+
+```shell
+cd ARI-Supplementary-Materials
+```
+
+Run the `all-in-one.sh` and the reproduced results will be recorded in `./results/reproduction.txt`. 
+
+```shell
+./all-in-one.sh
+```
+
+You will find that the number of proved cases and the verification speed are compatible with the data in the paper.
+
+Note that some data are not affected by different versions of SQLSolver, such as the verification capability and verification speed of baseline verifiers. These data have been reproduced by the scripts of the latest version. Therefore, it is unnecessary to reproduce these data again.
