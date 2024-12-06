@@ -190,7 +190,7 @@ docker exec -it sqlsolver /bin/bash
 Now, you are under the `/app` directory. Please enter the directory of the old SQLSolver.
 
 ```shell
-cd ARI-Supplementary-Materials
+cd ARI-Supplementary-Material
 ```
 
 Run the `all-in-one.sh` and the reproduced results will be recorded in `./results/reproduction.txt`. 
