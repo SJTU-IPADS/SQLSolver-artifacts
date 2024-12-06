@@ -200,5 +200,3 @@ Run the `all-in-one.sh` and the reproduced results will be recorded in `./result
 ```
 
 You will find that the number of proved cases and the verification speed are compatible with the data in the paper.
-
-Note that some data are not affected by different versions of SQLSolver, such as the verification capability and verification speed of baseline verifiers. These data have been reproduced by the scripts of the latest version. Therefore, it is unnecessary to reproduce these data again.
