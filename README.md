@@ -193,7 +193,7 @@ Now, you are under the `/app` directory. Please enter the directory of the old S
 cd ARI-Supplementary-Material
 ```
 
-Run the `all-in-one.sh` and the reproduced results will be recorded in `./results/reproduction.txt`. 
+Run the `all-in-one.sh` and the reproduced results will be recorded in `./results/reproduction.txt`.  Note that before running this script, please first run the `all-in-one.sh` of this repository.
 
 ```shell
 ./all-in-one.sh
