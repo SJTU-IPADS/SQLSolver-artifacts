@@ -56,6 +56,14 @@ In the project root directory, type:
 docker compose up --remove-orphans
 ```
 
+Note that this is a blocking process. If you see the following output in the terminal, the container has successfully started.
+
+```
+This is an informational message only. No user action is required.
+```
+
+Please open a new terminal and execute the following commands.
+
 ## Compilation
 
 The baselines `UDP` and `SPES` require compilation beforehand.
