@@ -183,6 +183,8 @@ This repository provides the latest version of SQLSolver, while the old version 
 
 ### How to Run the Old Version of SQLSolver
 
+Note that the old version is only accessible for SIGMOD ARI. If you want to use the latest version of SQLSolver, please visit this [repository](https://github.com/SJTU-IPADS/SQLSolver/).
+
 Under the root directory of this repository, please first download the repository of the old SQLSolver.
 
 ```shell
